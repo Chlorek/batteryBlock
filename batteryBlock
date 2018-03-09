@@ -8,7 +8,11 @@ do
 	if [ "$STATUS" == "Unk" ]; then
 		STATUS=""
 	fi
-	output="$output | $LEVEL% $STATUS"
+	if [ ${#output} -eq 0 ]; then
+		output="$LEVEL% $STATUS"
+	else
+		output="$output | $LEVEL% $STATUS"
+	fi
 done
 echo $output
 
